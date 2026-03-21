@@ -1,0 +1,32 @@
+# Temporary files
+*.tmp
+*.log
+*.swp
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+
+# Sensitive data patterns (defense in depth)
+*password*
+*secret*
+*token*
+*credential*
+*.pem
+*.key
+
+# OpenClaw internal (do not commit)
+# These are machine-specific and should NOT be in the backup
+openclaw.json
+paired.json
+sessions/
+logs/
+*.db
+
+# Personal files that shouldn't be shared
+personal/
+secrets/
