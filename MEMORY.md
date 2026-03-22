@@ -1,67 +1,31 @@
-# MEMORY.md — Neo 长期记忆
+# MEMORY.md - Long-Term Memory
 
-> 由策展记忆：非每日日志，而是从日志中提炼的精华
+## Identity
+- Name: Neo, AI assistant (Matrix 主角同款 🕶️)
+- User: 老赵, 坐标深圳
 
----
+## Security Posture (Critical - Ongoing)
+**7 critical security issues from `openclaw security audit --deep` (as of 2026-03-22):**
+1. Feishu `groupPolicy="open"` + elevated tools enabled → high risk prompt injection
+2. Feishu open group + runtime/fs tools exposed
+3. Plugin `.openclaw-install-stage-VyK5PO` — env-harvesting + dangerous exec (4 critical)
+4. Plugin `adp-openclaw` — env-harvesting + dangerous exec (3 critical)
+5. Plugin `qqbot` — env-harvesting + dangerous exec (4 critical)
+6. Skill `tavily-search` — env-harvesting in scripts (2 critical)
+7. Feishu doc create can grant permissions to requesting user
 
-## 🧠 关于我自己
+**Recommended fixes (unresolved):**
+- Set `channels.feishu.groupPolicy="allowlist"` + `groupAllowFrom`
+- Set `plugins.allow` to explicit trusted plugin ids
+- Pin npm specs to exact versions for qqbot, ddingtalk, wecom, adp-openclaw
+- Set `agents.defaults.sandbox.mode="all"` + `tools.fs.workspaceOnly=true`
+- Use `tools.profile="messaging"` for open groups
 
-- **名字**: Neo
-- **来源**: 用户给定，取自《黑客帝国》
-- **人格**: 忠诚、正直、幽默、实力在线
-- **Emoji**: 🕶️
+## Extensions/Plugins Installed
+- qqbot, ddingtalk, wecom, adp-openclaw, skillhub, .openclaw-install-stage-VyK5PO
+- All plugins: no `plugins.allow` set (security risk)
+- All npm specs: unpinned (supply chain risk)
 
----
-
-## 👤 关于老赵
-
-- **名字**: 老赵
-- **坐标**: 深圳
-- **渠道**: 飞书（Feishu）
-- **时区**: Asia/Shanghai
-
----
-
-## 🔑 重要决策记录
-
-### 2026-03-21
-
-**技能安装**
-- 安装了 scrapling-official、scrapling-web-scraping、scrapling-fetch
-- 安装了 AI-Search-Hub（克隆自 GitHub）
-- 安装了 Playwright + Chromium 依赖（AI Search Hub 需要）
-- 安装了 camoufox + miku_ai（微信公众号抓取需要）
-
-**公众号分析**
-- 抓取了 DeepVan（逃生地牢）的全部文章（9篇，2篇已删除）
-- 完成了 DeepVan 投资思路分析
-- 评估了 DeepVan 历史正确率（宏观框架强，择时偏弱）
-
----
-
-## 🏗️ 系统配置
-
-- **运行环境**: OpenClaw on Ubuntu (VM-0-14-ubuntu)
-- **工作区**: /root/.openclaw/workspace
-- **模型**: minimax/MiniMax-M2.7
-- **渠道**: feishu
-- **Python**: 3.12 (系统级安装，使用 --break-system-packages)
-
----
-
-## 📝 教训与最佳实践
-
-1. **scrapling-fetch** 脚本有硬编码路径，需直接用 Python API
-2. **AI Search Hub** 需要图形界面，服务器环境无法运行 headful 模式
-3. **微信公众号抓取**：camoufox 最可靠，Scrapling 在服务器环境受限于 display
-4. **Stooq** 可用于获取历史股价数据（无需 API key）
-5. **yfinance** 存在 rate limit，建议用 Stooq 作为替代
-
----
-
-## 🛡️ 安全原则
-
-- 红线操作必须暂停并询问用户
-- 安装技能前必须进行安全审计
-- 不保存用户凭证到文件
-- 不执行来源不明的 curl | sh 类命令
+## Notes
+- OPC daily briefing generated 2026-03-22
+- 飞书 open group 对外暴露，需重点关注
