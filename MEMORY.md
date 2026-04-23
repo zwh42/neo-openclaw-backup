@@ -11,8 +11,9 @@
 3. Plugin `.openclaw-install-stage-VyK5PO` — env-harvesting + dangerous exec (4 critical)
 4. Plugin `adp-openclaw` — env-harvesting + dangerous exec (3 critical)
 5. Plugin `qqbot` — env-harvesting + dangerous exec (4 critical)
-6. Skill `tavily-search` — env-harvesting in scripts (2 critical)
-7. Feishu doc create can grant permissions to requesting user
+6. Plugin `wecom` — env-harvesting + dangerous exec (3 critical)
+7. Skill `tavily-search` — env-harvesting in scripts (2 critical)
+8. Feishu doc create can grant permissions to requesting user
 
 **Recommended fixes (unresolved):**
 - Set `channels.feishu.groupPolicy="allowlist"` + `groupAllowFrom`
@@ -27,5 +28,14 @@
 - All npm specs: unpinned (supply chain risk)
 
 ## Notes
-- OPC daily briefing generated 2026-03-22
+- OPC daily briefing generated 2026-04-17 (Curvilinear OPC + ILT，15篇，最新)
+- OPC daily briefing generated 2026-04-15 (Curvilinear OPC，38篇，涵盖：边界迭代优化/强化学习SRAF/PVBand收缩/生成式ILT/High-NA EUV融合等)
+- 安全巡检（7 critical · 5 warn · 1 info）自2026-03-22起每日04:00执行，无变化
+- OPC 报告存档：`/root/.openclaw/workspace/reports/opc-briefing-2026-04-17.md`
 - 飞书 open group 对外暴露，需重点关注
+- 2026-03-23: wecom 插件新增 2x potential-exfiltration 警告（monitor.ts:501, outbound.ts:208）
+- Config hash mismatch 自2026-03-30起，原因待查
+
+## Ongoing Issues
+- **Config hash mismatch**: openclaw.json modified date不一致（自2026-03-30起），权限正常(600)，原因待查
+- **neoBackup git repo**: /tmp/neo-backup 是 git 仓库，最后提交 2026-03-31（"Add memory for 2026-03-31"）

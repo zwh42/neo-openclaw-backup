@@ -2,8 +2,24 @@
   "lastChecks": {
     "email": null,
     "calendar": null,
-    "weather": null,
-    "memory_maintenance": 1742640000
+    "weather": 1745412900,
+    "memory_maintenance": 1745310934
   },
-  "lastMaintenance": "2026-03-22"
+  "lastMaintenance": "2026-04-22",
+  "weather": {
+    "location": "Shenzhen",
+    "condition": "⛅",
+    "temp": "+21°C",
+    "humidity": "94%",
+    "wind": "↘10km/h",
+    "note": "刷新自2026-04-23 21:35"
+  },
+  "notes": {
+    "2026-04-22T09:35": "早间 Heartbeat: 深圳🌧️26°C/84%/SSE10km/h。OPC简报已发(07:36,38条)。安全巡检无变化(7c/5w/1i)。",
+    "2026-04-22T12:05": "午间 Heartbeat: 深圳⛅28°C/74%/14km/h。OPC简报已发(07:36)。无事。",
+    "2026-04-22T18:35": "晚间 Heartbeat: 深圳⛅28°C/74%/18km/h。天气无大变化。wecom日程查询失败(WSClient未连接)。无事。",
+    "2026-04-23T07:35": "早间 Heartbeat: 深圳🌧️26°C。OPC简报已发(07:30,38条)。neoBackup scripts/backup.sh 被删除未提交，需关注。",
+    "2026-04-23T12:05": "午间 Heartbeat: 深圳⛅27°C/84%/↗17km/h。天气无大变化。neoBackup scripts/backup.sh 仍deleted。安全无变化。",
+    "2026-04-23T21:35": "晚间 Heartbeat: 深圳⛅21°C/94%/↘10km/h。气温降至21°C（比正午低6度），湿度升至94%。天气明显转凉。neoBackup backup.sh 仍deleted，待处理。OPC简报已发。安全无变化。"
+  }
 }
